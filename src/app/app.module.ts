@@ -15,11 +15,34 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 
 import { DemoMaterialModule } from './shared/material'
+import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OrphansListComponent } from './orphans-list/orphans-list.component';
 
+import { CdkTableModule } from '@angular/cdk/table';
+import { OrphanComponent } from './orphan/orphan.component';
+import { AdoptionComponent } from './adoption/adoption.component';
+import { FooterComponent } from './footer/footer.component';
+import { AdopterComponent } from './adopter/adopter.component';
+import { AdoptersListComponent } from './adopters-list/adopters-list.component';
+import { MarwaEkfalniComponent } from './marwa-ekfalni/marwa-ekfalni.component';
+import { MarwaOrphansListComponent } from './marwa-orphans-list/marwa-orphans-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AdoptionMessageComponent } from './adoption-message/adoption-message.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    OrphansListComponent,
+    OrphanComponent,
+    AdoptionComponent,
+    FooterComponent,
+    AdopterComponent,
+    AdoptersListComponent,
+    MarwaEkfalniComponent,
+    MarwaOrphansListComponent,
+    AdoptionMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -27,11 +50,14 @@ import { DemoMaterialModule } from './shared/material'
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule,
-    // AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
-    DemoMaterialModule
+    DemoMaterialModule,
+    FormsModule, ReactiveFormsModule,
+    CdkTableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

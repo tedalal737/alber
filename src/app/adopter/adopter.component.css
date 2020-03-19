@@ -1,0 +1,48 @@
+.wrapper {
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+.male {
+    background-color: rgb(201, 239, 255);
+    padding: 7px 0;
+}
+
+.female {
+    background-color: rgb(249, 213, 253);
+    padding: 7px 0;
+}
+
+.femaleButton {
+    background-color: rgb(151, 123, 155);
+    color: white;
+}
+
+.femaleButton:active {
+    background-color: rgb(151, 123, 155);
+    color: white;
+}
+
+form {
+    margin-top: 30px;
+}
+
+.form-group {
+    margin: 10px 0;
+}
+
+button[type=submit] {
+    width: 150px;
+    margin-top: 30px;
+    font-size: 26px;
+}
+
+label {
+    font-size: 20px;
+    color: gray;
+}
+
+input {
+    font-size: 24px;
+    padding: 30px 15px;
+}

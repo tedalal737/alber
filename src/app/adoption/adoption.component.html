@@ -1,0 +1,56 @@
+<div class="container">
+
+    <!-- {{ formGroup.value | json }} -->
+
+    <br>
+    <!-- {{ orphan.adopter?.id }} -->
+
+    <div *ngIf="orphan">
+
+        <h1> {{ orphan.adopted ? 'تجديد الكفالة' : 'إضافة كفالة' }} </h1>
+
+
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" dir="rtl">
+
+            <div class="form-group">
+
+                <label for="adopter">اختيار الكفيل</label>
+
+                <select class="form-control" id="cars"formControlName="adopter">
+                    <option value="">اختيار كفيل</option>
+                    <option  *ngFor="let adopter of adopters" value="{{adopter.id}}">{{ adopter.name }}</option>
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <mat-form-field>
+                    <mat-label>تاريخ انتهاء الكفالة</mat-label>
+                    <input matInput [matDatepicker]="myDatepicker" formControlName="adoptionExpireDate">
+                    <mat-datepicker-toggle [for]="myDatepicker" matSuffix></mat-datepicker-toggle>
+                    <mat-datepicker #myDatepicker></mat-datepicker>
+                </mat-form-field>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="duration" class="control-label">عدد الأشهر</label>
+                <input type="text" formControlName="duration" class="form-control">
+                <small *ngIf="duration.invalid && duration.touched" style="color: red;">
+                    يجب إدخال عدد الأشهر</small>
+
+            </div>
+
+            <button type="submit">حفظ</button>
+
+
+        </form>
+
+
+
+    </div>
+
+</div>

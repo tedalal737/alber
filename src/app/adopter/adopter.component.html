@@ -1,0 +1,139 @@
+<div class="wrapper">
+
+    <div class="container">
+
+        <div class="row" dir="rtl">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <!-- <h5 style="text-align:center;color: gray;">{{ org == null ? "....." : org.name }}</h5> -->
+            </div>
+            <div class="col-4">
+                <!-- <a href="#" style="text-decoration: none;" (click)="logout()">
+                    <h5 style="color: gray;text-align: left; padding-left: 20px;">تسجيل خروج</h5>
+                </a> -->
+            </div>
+        </div>
+
+        <div class="col-4"></div>
+
+        <div class="row" style="background: rgb(225, 249, 225);" dir="rtl">
+
+            <div class="col-4" style="color: rgb(77, 77, 77); font-weight: normal;">
+                <!-- <h4>الإجمالي: {{ totalAdopters == null ? "....." : totalAdopters }}</h4> -->
+            </div>
+            <div class="col-4">
+                <h4 style="text-align:center;">
+                    {{ !adopterId ? 'إضافة كفيل' : 'تعديل كفيل'}}
+                </h4>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" dir="rtl">
+
+            <div class="form-row">
+
+                <div class="form-group col">
+                    <label for="name" class="control-label">اسم الكفيل</label>
+                    <input type="text" formControlName="name" class="form-control">
+                    <small *ngIf="name.invalid && name.touched" style="color: red;">يجب إدخال اسم الكفيل</small>
+                </div>
+
+                <div class="form-group col">
+                    <label for="mobile" class="control-label">رقم الجوال</label>
+                    <input type="text" formControlName="mobile" class="form-control" dir="ltr" placeholder="5XXXXXXXX">
+                    <small *ngIf="mobile.invalid && mobile.touched" style="color: red;">يجب إدخال رقم الجوال
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputState">المدينة</label>
+                    <select id="inputState" class="form-control" formControlName="city" style="height: 2.5em">
+                        <option selected="" disabled="" value=""> -- اختيار -- </option>
+                        <option value="جدة">جدة</option>
+                        <option value="الرياض">الرياض</option>
+                        <option value="الدمام">الدمام</option>
+                        <option value="الخبر">الخبر</option>
+                        <option value="الجبيل">الجبيل</option>
+                        <option value="الاحساء">الاحساء </option>
+                        <option value="جيزان">جيزان</option>
+                        <option value="خميس مشيط">خميس مشيط </option>
+                        <option value="أبها">أبها</option>
+                        <option value="تبوك">تبوك</option>
+                        <option value="ينبع">ينبع</option>
+                        <option value="المدينة المنورة">المدينة المنورة</option>
+                        <option value="مكة المكرمة">مكة المكرمة</option>
+                        <option value="الطايف">الطايف</option>
+                        <option value="حايل">حايل</option>
+                        <option value="محايل عسير">محايل عسير</option>
+                        <option value="نجران">نجران</option>
+                        <option value="الباحة">الباحة</option>
+                        <option value="القصيم">القصيم</option>
+                        <option value="حفر الباطن">حفر الباطن</option>
+                        <option value="الخرج">الخرج</option>
+                        <option value="بيشه">بيشه</option>
+                        <option value="القنفذة">القنفذة</option>
+                        <option value="رابغ">رابغ</option>
+                        <option value="القريات">القريات</option>
+                        <option value="الليث">الليث</option>
+                        <option value="عرعر">عرعر</option>
+                        <option value="شروره">شروره</option>
+                        <option value="رفحا">رفحا</option>
+                        <option value="طريف">طريف</option>
+                        <option value="سكاكا">سكاكا</option>
+                        <option value="المظيلف">المظيلف</option>
+                        <option value="القطيف">القطيف</option>
+                        <option value="الدوادمي">الدوادمي</option>
+                        <option value="القويعية">القويعية</option>
+                        <option value="شقراء">شقراء</option>
+                        <option value="صبيا">صبيا</option>
+                        <option value="صامطة">صامطة</option>
+                        <option value="عفيف">عفيف</option>
+                        <option value="ابوعريش">ابوعريش</option>
+                        <option value="المزاحمية">المزاحمية</option>
+                        <option value="السليل">السليل</option>
+                        <option value="وادي الدواسر">وادي الدواسر</option>
+                        <option value="المجارده">المجارده</option>
+                        <option value="الجوف">الجوف</option>
+                        <option value="دومة الجندل">دومة الجندل</option>
+                        <option value="المخواه">المخواه</option>
+                        <option value="الرس">الرس</option>
+                        <option value="البكيرية">البكيرية</option>
+                        <option value="احد رفيدة">احد رفيدة</option>
+                        <option value="البدايع">البدايع</option>
+                        <option value="النماص">النماص</option>
+                        <option value="صفوى">صفوى</option>
+                        <option value="سيهات">سيهات</option>
+                        <option value="رأس تنورة">رأس تنورة</option>
+                        <option value="الخفجي">الخفجي</option>
+                        <option value="بقيق">بقيق</option>
+                        <option value="النعيرية">النعيرية</option>
+                        <option value="ظهران">ظهران</option>
+                        <option value="الدلم">الدلم</option>
+                        <option value="المجمعة وحوطة سدير">المجمعة وحوطة سدير</option>
+                        <option value="رحفاء">رحفاء</option>
+                        <option value="طبرجل">طبرجل</option>
+                        <option value="جدة">...</option>
+                    </select>
+                </div>
+            </div>
+    
+            <div style="text-align: center;">
+                <button type="submit" class="btn btn-success"
+                    [disabled]="formGroup.invalid">{{ !adopterId ? 'حفظ' : 'تعديل'}}</button>
+            </div>
+
+        </form>
+
+    </div>
+
+
+</div>
+
+<app-footer></app-footer>

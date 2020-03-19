@@ -1,0 +1,14 @@
+<div class="container">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+        <div class="formGroup">
+
+            <label for="message">رسالة الكفالة</label>
+            <input type="text" formControlName="message" class="form-control" style="text-align: right;">
+
+        </div>
+
+        <button class="btn btn-success">حفظ</button>
+
+    </form>
+</div>

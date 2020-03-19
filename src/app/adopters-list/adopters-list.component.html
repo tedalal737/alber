@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row title-bar">
+        <div class="col-4" style="text-align: left;">
+        </div>
+        <div class="col-4 page-title">
+            <h3>بيان الكفلاء</h3>
+        </div>
+        <div class="col-4" style="text-align: right;">
+        </div>
+    </div>
+
+    <div *ngIf="(dataSource$ | async)">
+
+        <table cdk-table [dataSource]="dataSource$" class="table table-striped" dir="rtl"
+            *ngIf="(dataSource$| async)?.length > 0; else nodata">
+
+
+            <ng-container cdkColumnDef="#">
+                <th cdk-header-cell *cdkHeaderCellDef> # </th>
+                <td cdk-cell *cdkCellDef="let row"> </td>
+            </ng-container>
+
+            <ng-container cdkColumnDef="name">
+                <th cdk-header-cell *cdkHeaderCellDef> اسم الكفيل </th>
+                <td cdk-cell *cdkCellDef="let row"> {{row.name}} </td>
+            </ng-container>
+
+            <ng-container cdkColumnDef="mobile">
+                <th cdk-header-cell *cdkHeaderCellDef> جوال </th>
+                <td cdk-cell *cdkCellDef="let row"> {{row.mobile}} </td>
+            </ng-container>
+
+            <ng-container cdkColumnDef="city">
+                <th cdk-header-cell *cdkHeaderCellDef> المدينة </th>
+                <td cdk-cell *cdkCellDef="let row"> {{row.city}} </td>
+            </ng-container>
+
+            <ng-container cdkColumnDef="editAdoptor">
+                <th cdk-header-cell *cdkHeaderCellDef> </th>
+                <td cdk-cell *cdkCellDef="let row">
+                        <!-- <button [routerLink]="['../../edit-adopter/',row.id]">تعديل</button> -->
+                </td>
+            </ng-container>
+
+            <!-- Header and Row Declarations -->
+            <tr cdk-header-row
+                *cdkHeaderRowDef="['#', 'name', 'mobile', 'city', 'editAdoptor']">
+            </tr>
+            <tr cdk-row
+                *cdkRowDef="let row; columns: ['#', 'name', 'mobile', 'city', 'editAdoptor']">
+            </tr>
+
+        </table>
+
+
+    </div>
+
+    <ng-template #nodata>
+        <div style="text-align: center;margin:50px">
+            <h1>لا يوجد بيانات</h1>
+        </div>
+    </ng-template>
+
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,33 @@
+* {
+    padding: 0;
+}
+
+#body {
+    height: 100%;
+    padding-top: 20px;
+    /* background-image: url("src/assets/sites/marwa-ekfalni/pattern.png"); */
+    background-color: #f1f1f1;
+    background-repeat: repeat-y repeat-x;
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+}
+
+#header {
+    border-radius: 25px 25px;
+    border: 2px solid darkgreen;
+    overflow: hidden;
+    background: #023E4C;
+}
+
+button{
+    background: #001a4b;
+    width: 100%;
+    margin:12px 0;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}

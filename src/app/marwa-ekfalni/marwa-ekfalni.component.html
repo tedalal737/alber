@@ -1,0 +1,40 @@
+<div id='body'>
+
+    <div class="container" style="text-align:center;background:rgba(255, 252, 246, 0.5);">
+
+        <div id="header">
+
+            <img src="assets/pages/marwa/header.png" class="responsive">
+
+        </div>
+
+
+        <div style="margin:30px">
+
+            <button [routerLink]="['/marwa-orphans-list/male']">
+                <h2>للكفالة اضغط هنا للدخول الى بيانات الذكور</h2>
+            </button>
+
+            <button [routerLink]="['/marwa-orphans-list/female']">
+                <h2>للكفالة اضغط هنا للدخول الى بيانات الإناث</h2>
+            </button>
+
+            <button [routerLink]="['/marwa-orphans-list/adopted-male']">
+                <h2>
+                    اضغط هنا للاطلاع على عدد المكفولين
+                    ({{ adoptedTotal }})
+                    مكفول
+                </h2>
+            </button>
+
+        </div>
+
+
+        <div style="text-align:center" style="margin-top:15px; background:#001a4b; padding:60px">
+            <img src="assets/pages/marwa/last.png" class="responsive" style="padding:0 10px">
+        </div>
+
+    </div>
+
+
+</div>

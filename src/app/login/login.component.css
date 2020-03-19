@@ -1,0 +1,24 @@
+.wrapper{
+    width:500px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+input{
+    text-align: left;
+    font-size: 26px;
+    padding-bottom: 27px;
+    padding-top: 27px;
+    direction: ltr;
+}
+
+label {
+    font-size: 20px;
+    color: gray;
+}
+
+button[type=submit] {
+    width: 120px;
+    margin-top: 30px;
+    font-size: 22px;
+}

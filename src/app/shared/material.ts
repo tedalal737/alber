@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
+import {MatFormFieldModule} from '@angular/material/form-field';
 // import {A11yModule} from '@angular/cdk/a11y';
 // import {DragDropModule} from '@angular/cdk/drag-drop';
 // import {PortalModule} from '@angular/cdk/portal';
@@ -17,15 +18,16 @@ import {MatIconModule} from '@angular/material/icon';
 // import {MatCheckboxModule} from '@angular/material/checkbox';
 // import {MatChipsModule} from '@angular/material/chips';
 // import {MatStepperModule} from '@angular/material/stepper';
-// import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 // import {MatDialogModule} from '@angular/material/dialog';
 // import {MatDividerModule} from '@angular/material/divider';
 // import {MatExpansionModule} from '@angular/material/expansion';
 // import {MatGridListModule} from '@angular/material/grid-list';
-// import {MatInputModule} from '@angular/material/input';
+import {MatInputModule} from '@angular/material/input';
 // import {MatListModule} from '@angular/material/list';
 // import {MatMenuModule} from '@angular/material/menu';
-// import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import {MatNativeDateModule} from '@angular/material/core';
+// import { MatRippleModule} from '@angular/material/core';
 // import {MatPaginatorModule} from '@angular/material/paginator';
 // import {MatProgressBarModule} from '@angular/material/progress-bar';
 // import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -46,6 +48,7 @@ import {MatIconModule} from '@angular/material/icon';
   exports: [
     MatSidenavModule,
     MatIconModule,
+    MatFormFieldModule,
     // A11yModule,
     // CdkStepperModule,
     // CdkTableModule,
@@ -60,15 +63,15 @@ import {MatIconModule} from '@angular/material/icon';
     // MatCheckboxModule,
     // MatChipsModule,
     // MatStepperModule,
-    // MatDatepickerModule,
+    MatDatepickerModule,
     // MatDialogModule,
     // MatDividerModule,
     // MatExpansionModule,
     // MatGridListModule,
-    // MatInputModule,
+    MatInputModule,
     // MatListModule,
     // MatMenuModule,
-    // MatNativeDateModule,
+    MatNativeDateModule,
     // MatPaginatorModule,
     // MatProgressBarModule,
     // MatProgressSpinnerModule,
