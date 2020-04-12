@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="row title-bar">
+        <div class="col-4" style="text-align: left;">
+            <button class="btn btn-light" [style.display]="adopted ? 'inline' : 'none'" [routerLink]="['/megzi3-orphans-list/adopted-male']">
+                <h2>مكفولين ذكور
+                </h2>
+            </button>
+        </div>
+        <div class="col-4 page-title" style="text-align: center;">
+            <h2>بيان المكفولين</h2>
+        </div>
+        <div class="col-4" style="text-align: right;">
+            <button class="btn btn-light" [style.display]="adopted ? 'inline' : 'none'" [routerLink]="['/megzi3-orphans-list/adopted-female']">
+                <h2>مكفولين إناث
+                </h2>
+            </button>
+        </div>
+    </div>
+
+
+    <div *ngIf="(dataSource$ | async)">
+
+        <table cdk-table [dataSource]="dataSource$" class="table table-striped" dir="rtl"
+            *ngIf="(dataSource$| async)?.length > 0; else nodata">
+
+
+            <ng-container cdkColumnDef="#">
+                <th cdk-header-cell *cdkHeaderCellDef> # </th>
+                <td cdk-cell *cdkCellDef="let row; let i = index;"> {{ nextCount == 1 ? i+1 : (i + 1 + (nextCount * 10)) }} </td>
+            </ng-container>
+
+            <ng-container cdkColumnDef="fullName">
+                <th cdk-header-cell *cdkHeaderCellDef> الاسم </th>
+                <td cdk-cell *cdkCellDef="let row"> {{row.staredName}} </td>
+            </ng-container>
+
+            <ng-container cdkColumnDef="idNo">
+                <th cdk-header-cell *cdkHeaderCellDef> رقم الهوية </th>
+                <td cdk-cell *cdkCellDef="let row"> {{row.staredIdNo}} </td>
+            </ng-container>
+
+            <ng-container cdkColumnDef="adopterName">
+                <th cdk-header-cell *cdkHeaderCellDef> اسم الكفيل </th>
+                <td cdk-cell *cdkCellDef="let row"> {{row.adopter?.name}} </td>
+            </ng-container>
+
+            <ng-container cdkColumnDef="adoptionType">
+                <th cdk-header-cell *cdkHeaderCellDef> نوع الكفالة </th>
+                <td cdk-cell *cdkCellDef="let row">
+                    {{ row.adopted ? row.adoption?.duration +  ' شهور / ' + (row.adoption?.duration) * 200 + ' ريال': '' }}
+                </td>
+                <!-- {{ row.adopted ?  row.adoptoin?.duration + ' شهور / ' +  row.adoptoin?.duration * 200 : '' }} </td> -->
+            </ng-container>
+
+            <ng-container cdkColumnDef="editOrphan">
+                <th cdk-header-cell *cdkHeaderCellDef> </th>
+                <td cdk-cell *cdkCellDef="let row">
+                    <!-- <button [routerLink]="['../../edit-orphan/',row.id]">تعديل</button> -->
+                </td>
+            </ng-container>
+
+            <ng-container cdkColumnDef="adoption">
+                <th cdk-header-cell *cdkHeaderCellDef> </th>
+                <td cdk-cell *cdkCellDef="let row"> <button
+                        [routerLink]="['../../adoption/',row.id]">{{ row.adopted ? 'تجديد الكفالة' : 'إضافة كفالة'}}</button>
+                </td>
+            </ng-container>
+
+            <!-- Header and Row Declarations -->
+            <tr cdk-header-row *cdkHeaderRowDef="['#', 'fullName', 'idNo', 'adopterName', 'adoptionType']">
+            </tr>
+            <tr cdk-row *cdkRowDef="let row; columns: ['#', 'fullName', 'idNo', 'adopterName', 'adoptionType']">
+            </tr>
+
+        </table>
+
+
+    </div>
+
+    <ng-template #nodata>
+        <div style="text-align: center;margin:50px">
+            <h1>لا يوجد بيانات</h1>
+        </div>
+    </ng-template>
+
+    <div *ngIf="dataSource$ | async as orphans" style="text-align: center;">
+
+        <button (click)="goNextPage(orphans[orphans.length - 1]['idNo'])" class="btn btn-info"
+            [disabled]=" 10 * nextCount > total ? true : false">التالي</button>
+        <button (click)="goPrevPage(orphans[0]['idNo'])" class="btn btn-info"
+            [disabled]=" nextCount == 1 ? true : false ">السابق</button>
+
+        <!-- <button (click)="goNextPage(orphans[orphans.length-1].idNo)">next</button> -->
+    </div>
+
+</div>

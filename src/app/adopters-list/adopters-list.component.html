@@ -38,16 +38,23 @@
             <ng-container cdkColumnDef="editAdoptor">
                 <th cdk-header-cell *cdkHeaderCellDef> </th>
                 <td cdk-cell *cdkCellDef="let row">
-                        <!-- <button [routerLink]="['../../edit-adopter/',row.id]">تعديل</button> -->
+                        <button [routerLink]="['../edit-adopter/',row.id]">تعديل</button>
+                </td>
+            </ng-container>
+
+            <ng-container cdkColumnDef="delete">
+                <th cdk-header-cell *cdkHeaderCellDef> </th>
+                <td cdk-cell *cdkCellDef="let row">
+                        <button class="btn btn-danger" (click)="deleteAdopter(row.id)">حذف</button>
                 </td>
             </ng-container>
 
             <!-- Header and Row Declarations -->
             <tr cdk-header-row
-                *cdkHeaderRowDef="['#', 'name', 'mobile', 'city', 'editAdoptor']">
+                *cdkHeaderRowDef="['#', 'name', 'mobile', 'city', 'editAdoptor', 'delete']">
             </tr>
             <tr cdk-row
-                *cdkRowDef="let row; columns: ['#', 'name', 'mobile', 'city', 'editAdoptor']">
+                *cdkRowDef="let row; columns: ['#', 'name', 'mobile', 'city', 'editAdoptor', 'delete']">
             </tr>
 
         </table>

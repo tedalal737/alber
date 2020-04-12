@@ -33,11 +33,11 @@ export class AdoptionMessageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.orphanService.getAddoptionMessage().subscribe(data=>{
-    //   // this.addoptionMessage = data.addptionMessage;
-    //   this.message.setValue(data.message)
-    //   console.log(data)
-    // });
+    this.orphanService.getAddoptionMessage().subscribe(data=>{
+      // this.addoptionMessage = data.addptionMessage;
+      this.message.setValue(data.message)
+      console.log(data)
+    });
   }
 
 }

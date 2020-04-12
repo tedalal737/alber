@@ -45,6 +45,7 @@ export interface Total{
     male: number;
     female: number;
     zCQ3Dhxv5dQza3qKxhrV?: number;
+    raCkL5VyR5KOP8RJVPf7?: number;
 }
 
 export interface Message{

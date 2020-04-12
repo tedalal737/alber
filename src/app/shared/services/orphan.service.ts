@@ -39,6 +39,9 @@ export class OrphanService {
     this.prevPage$.next(value);
   }
 
+  firstName$: BehaviorSubject<string | null>;
+  secondName$: BehaviorSubject<string | null>;
+  thirdName$: BehaviorSubject<string | null>;
   adopted$: BehaviorSubject<boolean | null>;
   nextPage$: BehaviorSubject<boolean | string>;
   prevPage$: BehaviorSubject<boolean | string>;
@@ -46,13 +49,15 @@ export class OrphanService {
   // get all orphans
   getOrphans({ orgId, sex, pageSize = 10 }: { orgId: string, sex: string, pageSize?: number }): Observable<Orphan[]> {
     return combineLatest(
-      this.adopted$, this.getAdopters(), this.nextPage$, this.prevPage$
+      this.adopted$, this.getAdopters(), this.nextPage$, this.prevPage$, this.firstName$, this.secondName$, this.thirdName$
     ).pipe(
-      switchMap(([adopted, adopters, nextPage, prevPage]) =>
+      switchMap(([adopted, adopters, nextPage, prevPage, firstName, secondName, thirdName]) =>
 
         this.afs.collection<Orphan>('orphans', ref => {
           let query: firebase.firestore.CollectionReference | firebase.firestore.Query = ref.where('orgId', '==', orgId).where('sex', '==', sex); // default
 
+          if (firstName && secondName) { query = query.where('firstName', '==', firstName).where('secondName', '==', secondName) }; // search
+          if (thirdName) { query = query.where('thirdName', '==', thirdName) }; // search
           if (adopted == true) { query = query.where('adopted', '==', true) }; // adopted filter
           if (adopted == false) { query = query.where('adopted', '==', false) }; // adopted filter
 
@@ -115,6 +120,9 @@ export class OrphanService {
     private http: HttpClient,
   ) {
 
+    this.firstName$ = new BehaviorSubject(null);
+    this.secondName$ = new BehaviorSubject(null);
+    this.thirdName$ = new BehaviorSubject(null);
     this.adopted$ = new BehaviorSubject(null);
     this.nextPage$ = new BehaviorSubject(null);
     this.prevPage$ = new BehaviorSubject(null);
@@ -302,13 +310,13 @@ export class OrphanService {
 
   // get addopion message
   getAddoptionMessage() {
-    return this.afs.doc('messages/adoption-message').valueChanges();
+    return this.afs.doc<Message>('messages/adoption-message').valueChanges();
   }
 
 
   // adoption message
   updateAdoptionMessage(message: string) {
-    this.afs.doc<Message>('messages/adoption-message').update({
+    this.afs.doc('messages/adoption-message').update({
       'message': message
     }).then(data => {
       this.router.navigate(['orphans-list/male']);

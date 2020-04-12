@@ -29,6 +29,8 @@ import { MarwaEkfalniComponent } from './marwa-ekfalni/marwa-ekfalni.component';
 import { MarwaOrphansListComponent } from './marwa-orphans-list/marwa-orphans-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdoptionMessageComponent } from './adoption-message/adoption-message.component';
+import { Megzi3EkfalniComponent } from './megzi3-ekfalni/megzi3-ekfalni.component';
+import { Megzi3OrphansListComponent } from './megzi3-orphans-list/megzi3-orphans-list.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { AdoptionMessageComponent } from './adoption-message/adoption-message.co
     AdoptersListComponent,
     MarwaEkfalniComponent,
     MarwaOrphansListComponent,
-    AdoptionMessageComponent
+    AdoptionMessageComponent,
+    Megzi3EkfalniComponent,
+    Megzi3OrphansListComponent
   ],
   imports: [
     BrowserModule,

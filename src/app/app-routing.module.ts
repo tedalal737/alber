@@ -9,6 +9,8 @@ import { AdoptersListComponent } from './adopters-list/adopters-list.component';
 import { MarwaEkfalniComponent } from './marwa-ekfalni/marwa-ekfalni.component';
 import { MarwaOrphansListComponent } from './marwa-orphans-list/marwa-orphans-list.component';
 import { AdoptionMessageComponent } from './adoption-message/adoption-message.component';
+import { Megzi3EkfalniComponent } from './megzi3-ekfalni/megzi3-ekfalni.component';
+import { Megzi3OrphansListComponent } from './megzi3-orphans-list/megzi3-orphans-list.component';
 
 
 const routes: Routes = [
@@ -29,6 +31,12 @@ const routes: Routes = [
   { path: 'marwa-orphans-list/adopted-male', data: { 'sex' : 'male', 'adopted' : true }, component: MarwaOrphansListComponent},
   { path: 'marwa-orphans-list/adopted-female', data: { 'sex' : 'female', 'adopted' : true }, component: MarwaOrphansListComponent},
 
+  { path: 'megzi3', component: Megzi3EkfalniComponent},
+  { path: 'megzi3-orphans-list/male', data: { 'sex' : 'male', 'adopted' : false }, component: Megzi3OrphansListComponent},
+  { path: 'megzi3-orphans-list/female', data: { 'sex' : 'female', 'adopted' : false }, component: Megzi3OrphansListComponent},
+  { path: 'megzi3-orphans-list/adopted-male', data: { 'sex' : 'male', 'adopted' : true }, component: Megzi3OrphansListComponent},
+  { path: 'megzi3-orphans-list/adopted-female', data: { 'sex' : 'female', 'adopted' : true }, component: Megzi3OrphansListComponent},
+  
   { path: 'adoption-message', component: AdoptionMessageComponent},
 ];
 
